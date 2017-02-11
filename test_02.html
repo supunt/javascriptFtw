@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Testing this page with js</title>
+<script type="text/javascript">
+	function onSubmit() {
+		var userInput = document.getElementById('name').value;
+		if (userInput.length == 0)
+		{
+			alert('Blank value');
+			return;
+		}
+		var header = document.getElementById('mainhearder');
+		header.innerHTML =  userInput;
+	}	
+</script>
+</head>
+<body>
+	<h1 id="mainhearder">JS example</h1>
+	<input type="text" id="name" />
+	<input type="submit" value="click" onclick="onSubmit()" />
+</body>
+</html>
