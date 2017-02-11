@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Testing this page with js</title>
+<link rel="stylesheet" href="style.css">
 <script type="text/javascript">
 	function onSubmit() {
 		var userInput = document.getElementById('name').value;
@@ -16,8 +17,10 @@
 </script>
 </head>
 <body>
+<div class="header">
 	<h1 id="mainhearder">JS example</h1>
 	<input type="text" id="name" />
 	<input type="submit" value="click" onclick="onSubmit()" />
+</div>
 </body>
 </html>
