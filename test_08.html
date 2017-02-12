@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testing this page with js</title>
+	<link rel="stylesheet" href="style\style.css">
+	<script type="text/javascript">
+
+		// live scope -------------------
+		if (true){
+			var x = 5;
+		}
+		console.log(x);
+
+		// Function scope ------------------
+		globalScope = "global scope";
+		(function(){
+			var globalScope = "function scope";
+			console.log(globalScope);
+		})();
+		
+		console.log(globalScope);
+		globalScope = "global scope 2";
+		//-------------------------------------
+		(function(){
+			globalScope = "function scope edited";
+			console.log(globalScope);
+		})();
+		console.log(globalScope);
+
+		console.log("window.globalScope : " + window.globalScope);
+
+		//-------------------------------------
+		var load = function()
+		{
+			var block = document.getElementById('opContainer');
+			if (block == null)
+				return;
+
+			block.innerHTML = "<h3>Java script has only global and function scope</h3>"+
+				"<h3>Any block scope variable is brought up to the function scope level by interpreter</h3>"+
+				"<h3>Global scope variables belong to window.xxx context</h3>";
+		}
+		
+	</script>
+</head>
+<body onload="load()">
+<div class="header">
+	<h1>Javascript example</h1>
+	<h4>Variable Scope</h4>
+</div>
+<div class="container" id="opContainer">
+</div>	
+</body>
+</html>

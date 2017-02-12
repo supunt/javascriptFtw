@@ -1,15 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Testing this page with js</title>
-<link rel="stylesheet" href="style.css">
+	<title>javascript test 3</title>
+	<link rel="stylesheet" href="style\style.css">
 <script type="text/javascript">
+	// -----------------------------------------------------------------------
+	console.log("Console log enabled ---------------");
+	
+	// -----------------------------------------------------------------------
+	function submit(){
+		var name,age,pass, message;
+		name = document.getElementById('userInput');
+		age = document.getElementById('userAge');
+		pass = document.getElementById('userPass');
+		message = "Name :" + name.value + " Age : " + age.value + " Password : " + pass.value;
+		console.log(message);
 
+		var divis=document.getElementById('opContainer');
+		if (divis == null)
+			console.log("null");
+		else
+		{
+			//divis.innerHTML = divis.innerHTML + "<br><br>" + message;
+			var cc=document.getElementById('concatDiv');
+			if (cc != null)
+				cc.parentNode.removeChild(cc);
+
+			var Results = "<br><br><div id=\"concatDiv\"> Results are : <input type=\"text\" id=\"concat\" size=70px/></div>";
+			
+			console.log(getDrawStr("c1","c2"));
+
+			divis.innerHTML +=Results;
+			var cc=document.getElementById('concat');
+			cc.value = message;
+		}		
+	}
+	// -----------------------------------------------------------------------
+	function getDrawStr(col1,col2){
+		var ret = "<table class='testTable'>"+
+			"<tr>"+
+				"<td class='headrow'>"+col1+"</td>"+
+				"<td class='datarow'><input type=\"text\" id=\"userInput\" name=\
+				\"name\" value="+col2+"/></td>"+
+			"</tr>"+
+		"</table>";
+
+		return ret;
+	}
+	
+	// -----------------------------------------------------------------------
 </script>
 </head>
 <body>
 <div class="header">
 	<h1>Javascript example</h1>
+	<h4>Conditional logic</h4>	
+</div>
+<div class="container" id="opContainer">
+	<table class='testTable'>	
+		<tr>
+			<td class='headrow'>Name</td>
+			<td class='datarow'><input type="text" id="userInput" name="name" /></td>
+		</tr>
+		<tr>
+			<td class='headrow'>Age</td>
+			<td class='datarow'><input type="date" id="userAge" name="age" /></td>
+		</tr>
+		<tr>
+			<td class='headrow'>Password</td>
+			<td class='datarow'><input type="password" id="userPass" name="pass" /></td>
+		</tr>
+	<table>
+	<br>
+	<input type="submit" id="submit" onclick="submit()"" />
 </div>
 </body>
 </html>

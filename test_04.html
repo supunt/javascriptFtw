@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testing this page with js</title>
+	<link rel="stylesheet" href="style\style.css">
+	<script type="text/javascript">
+	function runChecks(argument) {
+		var testStr = "1";
+		var print = document.getElementById('opContainer');
+		print.innerHTML +="<br>Running '==' operator on str '1' and 'true'---"
+		if (testStr == true)
+			print.innerHTML += "<br>Passed by type conversion";
+		else
+			print.innerHTML += "<br>failed by type conversion";
+		print.innerHTML +="<br><br>Running '===' operator on str '1' and 'true'---"
+		if (testStr === true)
+			print.innerHTML += "<br>Passed by non-type conversion";
+		else
+			print.innerHTML += "<br>failed by non-type conversion";
+	}
+	//-------------------------------------------------------------
+	function Run(){
+		var time = new Date();
+		var timenow = time.toString();
+		var hour = time.getHours();
+		console.log(hour);
+		switch (true) {
+			case (hour > 12):
+				document.body.style.background = '#00fe00';
+				break;
+			default:
+				document.body.style.background = '#d1d1d1';
+				break;
+		}
+		console.log("Running : " + timenow);
+	}
+	//-------------------------------------------------------------
+	</script>
+</head>
+<body onload="runChecks()">
+<div class="header">
+	<h1>Javascript example</h1>
+	<h4>Operators</h4>
+</div>
+<div class="container" id="opContainer">
+</div>
+<div class="container" id="opContainer2">
+	<input type="submit" value="Change Color" onclick="Run()">
+</div>
+<div class="image" src="im.txt">
+element 1
+</div>
+<div class="image" src="im.txt">
+element 2
+</div>
+<div class="image" src="im2.txt">
+element 3
+</div>
+</body>
+</html>

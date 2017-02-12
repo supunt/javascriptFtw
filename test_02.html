@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Testing this page with js</title>
-<link rel="stylesheet" href="style.css">
-<script type="text/javascript">
-	function onSubmit() {
-		var userInput = document.getElementById('name').value;
-		if (userInput.length == 0)
-		{
-			alert('Blank value');
-			return;
-		}
-		var header = document.getElementById('mainhearder');
-		header.innerHTML =  userInput;
-	}	
-</script>
+	<title>javascript test 2</title>
+	<link rel="stylesheet" href="style\style.css">
+	<script type="text/javascript">
+		function onSubmit() {
+			var userInput = document.getElementById('name').value;
+			if (userInput.length == 0)
+			{
+				console.log('Blank value');
+				return;
+			}
+			var header = document.getElementById('mainhearder');
+			header.innerHTML =  userInput;
+		}	
+	</script>
 </head>
 <body>
 <div class="header">
-	<h1 id="mainhearder">JS example</h1>
+	<h1 id="mainhearder">Javascript example</h1>
+	<h4>Changing dom a little</h4>
 	<input type="text" id="name" />
 	<input type="submit" value="click" onclick="onSubmit()" />
 </div>

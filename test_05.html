@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testing this page with js</title>
+	<link rel="stylesheet" href="style\style.css">
+	<script type="text/javascript">
+		//-------------------------------------------------------
+		var opEnum = Object.freeze({"add":1,"subtract":2,"multiply":3});
+		//-------------------------------------------------------
+		var integer = 10;
+		function manipulate() {
+			integer = 10+10;
+			console.log("exec : " + integer);
+			print(integer);
+		}
+		function print(value) {
+			console.log("Printer : " + value);
+		}
+		//-------------------------------------------------------
+		var operate = function() {
+			var operator = arguments[arguments.length-1];
+			var op = "";
+			for (i = 0; i < arguments.length-1; i++)
+				op += ("Num_" + (i+1) + " : " + arguments[i] + ", ");
+
+			op += ("Operator : " + operator);
+			console.log(op)
+
+			var oped = 0;
+			if (operator == 'opEnum.multiply')
+				oped = 1;
+			
+			for (var i = 0; i < arguments.length-1; i++)
+			{
+				if (operator == 'opEnum.add')
+					oped+=parseInt(arguments[i]);
+				else if (operator == 'opEnum.subtract')
+					oped-=parseInt(arguments[i]);
+				else
+					oped*=parseInt(arguments[i]);
+			}			
+			console.log('Result is : ' + oped);
+			return oped;
+		}
+		//-------------------------------------------------------
+		console.log("Lambda results in : " + (function() {
+			var operator = arguments[arguments.length-1];
+			var op = "Lambda -- ";
+			for (i = 0; i < arguments.length-1; i++)
+				op += ("Num_" + (i+1) + " : " + arguments[i] + ", ");
+
+			op += ("Operator : " + operator);
+			console.log(op)
+
+			var oped = 0;
+			if (operator == 'opEnum.multiply')
+				oped = 1;
+			
+			for (i = 0; i < arguments.length-1; i++)
+			{
+				if (operator == 'opEnum.add')
+					oped+=parseInt(arguments[i]);
+				else if (operator == 'opEnum.subtract')
+					oped-=parseInt(arguments[i]);
+				else
+					oped*=parseInt(arguments[i]);
+			}			
+			//console.log('Result is : ' + oped);
+			return oped;
+		})(10,10,'opEnum.multiply'));
+		//-------------------------------------------------------
+	</script>
+</head>
+<body onload="manipulate()">
+<div class="header">
+	<h1>Javascript example</h1>
+	<h4>Functions</h4>
+</div>
+<div class='container'>
+	<input type="submit" value="mess with this" onclick="print('dumbAss')">
+	<br><br>
+	<table class="testTable">
+		<tr class='headrow'>
+			<td class='headrow'>
+				Number 1
+			</td>
+			<td class='headrow'>
+				Number 2
+			</td>
+			<td class='headrow'>
+				Operator
+			</td>
+		</tr>
+		<tr class='datarow'>
+			<td class='datarow'>
+				<input type="number" id="n1" />
+			</td>
+			<td class='datarow'>
+				<input type="number" id="n2" />
+			</td>
+			<td class='datarow'>
+				<select id="opr">
+					<option value=opEnum.add>Add</option>
+    				<option value=opEnum.subtract>Subtrat</option>
+    				<option value=opEnum.multiply>Multiply</option>
+				</select>
+			</td>
+		</tr>
+	</table>
+	<br><br>
+	<input type="submit" value="operate" onclick="operate(document.getElementById('n1').value,document.getElementById('n2').value,document.getElementById('opr').value)">
+</div>
+</body>
+</html>

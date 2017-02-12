@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testing this page with js</title>
+	<link rel="stylesheet" href="style\style.css">
+	<script type="text/javascript">
+		// ---------------------------------------------------------
+		var operate = function()
+		{
+			var cars = ["Lambo","Ferrari","Buggati", "Mclaren", "Lotus"];
+			printArraywhile(cars);
+			printArrayFor(cars);
+		}
+		// ---------------------------------------------------------
+		var printArrayFor = function() {
+			var arr2Print = arguments[0];
+			var block = document.getElementById('opContainer');
+			if (block == null)
+				return;
+
+			var string = "<h3>Printing array with 'for'</h3><table>";
+			string += "<tr><td class='headrow'> Element</td><td class='headrow'>Value<td></tr>";
+			for (i in arr2Print)
+			{
+				string += "<tr><td class='datarow'>" + i + "</td><td class='datarow'>";
+				string += arr2Print[i];
+				string += "</td></tr>";
+			}
+
+			string += "</table>";
+			block.innerHTML += string;
+		}
+		// ---------------------------------------------------------
+		var printArraywhile = function() {
+			var arr2Print = arguments[0];
+			var block = document.getElementById('opContainer');
+			if (block == null)
+				return;
+
+			var string = "<h3>Printing array with 'while'</h3><table>";
+			string += "<tr><td class='headrow'> Element</td><td class='headrow'>Value<td></tr>";
+			var i = 0;
+			while (i < arr2Print.length)
+			{
+				string += "<tr><td class='datarow'>" + i + "</td><td class='datarow'>";
+				string += arr2Print[i];
+				string += "</td></tr>";
+				i++; 
+			}
+
+			string += "</table>";
+			block.innerHTML += string;
+		}
+		// ---------------------------------------------------------
+	</script>
+</head>
+<body onload="operate()">
+<div class="header">
+	<h1>Javascript example</h1>
+	<h4>Loops</h4>
+</div>
+<div class="container" id="opContainer">
+</div>	
+</body>
+</html>

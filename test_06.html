@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Testing this page with js</title>
+	<link rel="stylesheet" href="style\style.css">
+	<script type="text/javascript">
+		// ---------------------------------------------------------
+		var doArrayOps = function() {
+			var arr1 = [];
+			arr1[0] = 1;
+			arr1[1] = "haha";
+			arr1[2] = 1.3313;
+			arr1[3] = "John";
+
+			var arr2 = [1234, "haraka", arr1, 1.1111];
+
+			var arr3 = [];
+			arr3["Rabbit"] = "Carrot";
+			arr3["Car"] = "Petrol";
+			arr3["Baby"] = "Milk";
+			arr3["Array1"] = arr1;
+			arr3["Array2"] = arr2;
+
+			
+			printArray(arr1);
+			printArray(arr2);
+			printArray(arr3);
+		}
+		// ---------------------------------------------------------
+		var printArray = function() {
+			var arr2Print = arguments[0];
+			var block = document.getElementById('opContainer');
+			if (block == null)
+				return;
+
+
+			var string = "<h3>Printing array</h3><table>";
+			string += "<tr><td class='headrow'> Element</td><td class='headrow'>Value<td></tr>";
+			for (i in arr2Print)
+			{
+				string += "<tr><td class='datarow'>" + i + "</td><td class='datarow'>";
+				string += arr2Print[i];
+				string += "</td></tr>";
+			}
+
+			string += "</table>";
+			block.innerHTML += string;
+		}
+		// ---------------------------------------------------------
+	</script>
+</head>
+<body onload="doArrayOps()">
+<div class="header">
+	<h1>Javascript example</h1>
+	<h1>Arrays</h1>
+</div>
+<div class="container" id="opContainer">
+</div>	
+</body>
+</html>
